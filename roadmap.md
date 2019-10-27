@@ -1,4 +1,4 @@
-# The `build2` project roadmap
+# The `build2` Project Roadmap
 
 The aim of this document is to lay out the current `build2` project roadmap.
 
