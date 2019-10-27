@@ -4,7 +4,7 @@ The aim of this document is to lay out the current `build2` project roadmap.
 
 We divide all planned features or *areas or work* into three categories:
 *"Strategic/Foundational"*, *"Important"*, and *"Nice to Have"*. Normally, we
-try to make progress in at least one Strategic/Foundational area in every
+try to make progress on at least one Strategic/Foundational area in every
 release, though sometimes we have cleanup releases where the primarily focus
 is on fixing bugs, paying off accumulated technical debt, etc.
 
@@ -36,7 +36,8 @@ mean we don't want help on other features, of course.
 
 - **C++20 modules [WIP] [HELP]**
 
-  This is an ongoing effort that is currently blocked by compiler support.
+  This is an ongoing effort that is currently blocked by support for modules
+  in the compilers.
 
   Specifically, for GCC we have the
   [`cxx-modules-ex`](https://gcc.gnu.org/git/?p=gcc.git;a=shortlog;h=refs/heads/boris/c%2B%2B-modules-ex)
@@ -49,16 +50,16 @@ mean we don't want help on other features, of course.
   Finally, for MSVC we are waiting for header unit and include translation
   support hopefully in the form of the module mapper.
 
-  If you would like to help move things forward on the compiler front, that
-  would be great.
+  If you are working on GCC or Clang and would like to help move things
+  forward on the compilers front, get in touch.
 
 - **Distributed compilation and caching for C/C++ [WIP]**
 
   We already have a lot of the infrastructure work in place. Specifically, all
   our compilation goes through partial preprocessing (full preprocessing on
-  MSVC) and we have accurate idea of all the inputs to each translation unit
-  (headers, modules, compiler options, TU tokens themselves, etc) as well as
-  which of them have changed.
+  MSVC) and we have an accurate idea of all the inputs to each translation
+  unit (headers, modules, compiler options, TU tokens themselves, etc) as well
+  as which of them have changed.
 
 - **Ad hoc build rules**
 
@@ -83,7 +84,7 @@ mean we don't want help on other features, of course.
   This includes the documentation for the missing pieces of the toolchain
   itself (mostly the build system) as well as the documentation extraction
   (from source code) that everyone can use to document their build system
-  modules.
+  modules (and maybe C++ projects in general).
 
 ## Important
 
@@ -98,6 +99,9 @@ mean we don't want help on other features, of course.
   We would like the package manager to provide the lockfile functionality.
 
 - **Config initializer**
+
+  We would like to have a higher-level (than compiler options) mechanism for
+  specifying the desired configuration.
 
   See [issue #11](https://github.com/build2/build2/issues/11).
 
@@ -121,7 +125,7 @@ mean we don't want help on other features, of course.
 - **Incremental testing**
 
   We would like to be able to run tests only for targets that have changed.
-  This will rely heavily on our existing work in Testscript, specifically,
+  This will rely heavily on our existing work on Testscript, specifically,
   the fact that the test inputs/outputs are well-encapsulated.
 
 
