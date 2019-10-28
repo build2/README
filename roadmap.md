@@ -14,7 +14,9 @@ experimenting with it) as well as **[HELP]** meaning the feature needs help
 from the broader community in the form of feedback, expertise (for example,
 knowledge and experience using a language or tool we are trying to support),
 and/or actual implementation before it can go forward. Note that this doesn't
-mean we don't want help on other features, of course.
+mean we don't want help on other features, of course. See also
+[Contributing](https://build2.org/community.xhtml#contribute) for other ways
+to contribute to the `build2` project.
 
 ## Strategic/Foundational
 
