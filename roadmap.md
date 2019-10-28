@@ -2,7 +2,7 @@
 
 The aim of this document is to lay out the current `build2` project roadmap.
 
-We divide all planned features or *areas or work* into three categories:
+We divide all planned features or *areas of work* into three categories:
 *"Strategic/Foundational"*, *"Important"*, and *"Nice to Have"*. Normally, we
 try to make progress on at least one Strategic/Foundational area in every
 release, though sometimes we have cleanup releases where the primarily focus
