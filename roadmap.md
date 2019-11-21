@@ -26,8 +26,9 @@ to contribute to the `build2` project.
   build system with support for additional languages, code generators,
   etc.
 
-  This feature is already in a fairly advanced stage and you can begin looking
-  into writing modules. See
+  This feature is already in a fairly [advanced
+  stage](https://build2.org/release/0.12.0.xhtml#build-system-modules) and you
+  can begin looking into writing modules. See
   [`libbuild2-hello`](https://github.com/build2/libbuild2-hello) to get
   started.
 
