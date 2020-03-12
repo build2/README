@@ -32,10 +32,12 @@ to contribute to the `build2` project.
   [`libbuild2-hello`](https://github.com/build2/libbuild2-hello) to get
   started.
 
-- **Project-specific configuration**
+- **Project-specific configuration [WIP]**
 
   We need to make the same configuration mechanisms we already use inside the
   build system available for custom, project-specific configuration.
+
+  See [issue #79](https://github.com/build2/build2/issues/79) for details.
 
 - **C++20 modules [WIP] [HELP]**
 
@@ -71,15 +73,6 @@ to contribute to the `build2` project.
   C++.
 
   See [issue #24](https://github.com/build2/build2/issues/24) for some
-  background.
-
-- **Build system overlays**
-
-  Ability to overlay a directory tree with buildfiles over a parallel tree
-  with source code. This feature will primarily be helpful while non-intrusively
-  packaging third-party projects.
-
-  See [issue #26](https://github.com/build2/build2/issues/26) for some
   background.
 
 - **Documentation**
@@ -135,4 +128,13 @@ to contribute to the `build2` project.
 ## Nice to Have
 
 See the [Issues List](https://github.com/build2/build2/issues/) for some
-of the nice-to-have features.
+of the nice-to-have features in addition to the below.
+
+- **Build system overlays**
+
+  Ability to overlay a directory tree with buildfiles over a parallel tree
+  with source code. This feature will primarily be helpful while
+  non-intrusively packaging third-party projects.
+
+  See [issue #26](https://github.com/build2/build2/issues/26) for some
+  background.
