@@ -18,45 +18,43 @@ mean we don't want help on other features, of course. See also
 [Contributing](https://build2.org/community.xhtml#contribute) for other ways
 to contribute to the `build2` project.
 
+
 ## Strategic/Foundational
 
-- **Build system modules [WIP] [HELP]**
+- **Conditional dependencies and dependency configuration [WIP]**
 
-  Dynamically buildable/loadable modules that can be used to extend the
-  build system with support for additional languages, code generators,
-  etc.
+  Sometimes our projects only need a dependency if certain conditions are met
+  (for example, we are building for Windows). Similarly, sometimes we may need
+  a dependency configured in a certain way (for example, we need a specific
+  feature enabled).
 
-  This feature is already in a fairly [advanced
-  stage](https://build2.org/release/0.12.0.xhtml#build-system-modules) and you
-  can begin looking into writing modules. See
-  [`libbuild2-hello`](https://github.com/build2/libbuild2-hello) to get
-  started.
+- **Dynamic dependencies in ad hoc recipes and rules [WIP]**
 
-- **Project-specific configuration [WIP]**
-
-  We need to make the same configuration mechanisms we already use inside the
-  build system available for custom, project-specific configuration.
-
-  See [issue #79](https://github.com/build2/build2/issues/79) for details.
+  Dynamic dependencies are supported in rules written in C++ but not in ad hoc
+  recipes and rules written in Buildscript. The plan is to extend the
+  Buildscript `depdb` builtin to support dynamic dependencies, including
+  auto-generated.
 
 - **C++20 modules [WIP] [HELP]**
 
   This is an ongoing effort that is currently blocked by support for modules
   in the compilers.
 
-  Specifically, for GCC we have the
-  [`cxx-modules-ex`](https://gcc.gnu.org/git/?p=gcc.git;a=shortlog;h=refs/heads/boris/c%2B%2B-modules-ex)
-  branch which implements [P1703](https://wg21.link/P1703) and
-  [P1842](https://wg21.link/P1842) and which will hopefully be eventually
-  merged with Nathan's branch and/or master. For Clang we are waiting for the
-  module mapper (for header unit and include translation support) as well as
-  some sort of a strict modules mode in the `c++2a` mode, see [this discussion
-  for details](http://lists.llvm.org/pipermail/cfe-dev/2019-October/063637.html).
-  Finally, for MSVC we are waiting for header unit and include translation
-  support hopefully in the form of the module mapper.
+  Specifically, for GCC we have [complete C++20 modules
+  support](https://build2.org/blog/build2-cxx20-modules-gcc.xhtml) sans the
+  ability to handle auto-generated headers. However, the modules support in
+  the compiler itself is not yet in a usable state. We also plan to try to
+  generalize the module mapper with support for auto-generated headers along
+  the [P1842](https://wg21.link/P1842R0) lines.
 
-  If you are working on GCC or Clang and would like to help move things
-  forward on the compilers front, get in touch.
+  For Clang we are waiting for the module mapper which is work in progress.
+
+  Finally, for MSVC we need to understand if it's possible to provide
+  sensible and conforming support without the module mapper (which the MSVC
+  developers have decided not to provide).
+
+  If you would like to help move things forward on any of these three fronts,
+  get in touch.
 
 - **Distributed compilation and caching for C/C++ [WIP]**
 
@@ -66,16 +64,13 @@ to contribute to the `build2` project.
   unit (headers, modules, compiler options, TU tokens themselves, etc) as well
   as which of them have changed.
 
-- **Ad hoc build rules**
+- **Automatic distribution package generation**
 
-  Ability to write custom build rules directly in buildfiles using either a
-  POSIX shell-like subset of portable commands or, for more complex cases,
-  C++.
+  We would like to be able to automatically produce binary distribution
+  packages (`.deb`, `.rpm`, `.msi`, etc) from `build2` packages and maybe even
+  publish them to [`cppget.org`](https://cppget.org).
 
-  See [issue #24](https://github.com/build2/build2/issues/24) for some
-  background.
-
-- **Documentation**
+- **Documentation [WIP]**
 
   This includes the documentation for the missing pieces of the toolchain
   itself (mostly the build system) as well as the documentation extraction
@@ -84,11 +79,18 @@ to contribute to the `build2` project.
 
 ## Important
 
-- **Hermetic builds**
+- **Assembler support [HELP]**
 
-  We would like to have the ability to make a configuration hermetic/isolated
-  from outside changes. This functionality would be an additional layer on
-  top of high-fidelity builds that we already have.
+  We need first-class assembler support in the `bin`/`cc` modules. See
+  [issue #162](https://github.com/build2/build2/issues/162) for background.
+
+- **Autoconf emulation module [HELP]**
+
+  We have started work on
+  [`libbuild2-autoconf`](https://github.com/build2/libbuild2-autoconf/), a
+  build system module that provides a rule for processing GNU Autoconf
+  `config.h.in` files as well as their CMake and Meson flavors. We need help
+  populating it with built-in checks.
 
 - **Lockfile**
 
@@ -100,16 +102,6 @@ to contribute to the `build2` project.
   specifying the desired configuration.
 
   See [issue #11](https://github.com/build2/build2/issues/11).
-
-- **Conditional dependencies and package components**
-
-  This will be our answer to the "How do I only have this dependency on
-  certain platforms (or, more generally, in certain configurations)?" and
-  "How do I make some parts/configurations of my package optional?" type
-  of questions.
-
-  See [issue #41](https://github.com/build2/build2/issues/41) for some
-  background.
 
 - **Support for static analysis [HELP]**
 
@@ -128,13 +120,4 @@ to contribute to the `build2` project.
 ## Nice to Have
 
 See the [Issues List](https://github.com/build2/build2/issues/) for some
-of the nice-to-have features in addition to the below.
-
-- **Build system overlays**
-
-  Ability to overlay a directory tree with buildfiles over a parallel tree
-  with source code. This feature will primarily be helpful while
-  non-intrusively packaging third-party projects.
-
-  See [issue #26](https://github.com/build2/build2/issues/26) for some
-  background.
+of the nice-to-have features.
