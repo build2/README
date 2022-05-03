@@ -51,7 +51,8 @@ to contribute to the `build2` project.
 
   Finally, for MSVC we need to understand if it's possible to provide
   sensible and conforming support without the module mapper (which the MSVC
-  developers have decided not to provide).
+  developers have decided not to provide). Specifically, we are currently
+  blocked by issue [10029154](https://developercommunity.visualstudio.com/t/scanDependencies-does-not-take-into-acc/10029154).
 
   If you would like to help move things forward on any of these three fronts,
   get in touch.
