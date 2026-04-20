@@ -21,42 +21,6 @@ to contribute to the `build2` project.
 
 ## Strategic/Foundational
 
-- **Conditional dependencies and dependency configuration [WIP]**
-
-  Sometimes our projects only need a dependency if certain conditions are met
-  (for example, we are building for Windows). Similarly, sometimes we may need
-  a dependency configured in a certain way (for example, we need a specific
-  feature enabled).
-
-- **Dynamic dependencies in ad hoc recipes and rules [WIP]**
-
-  Dynamic dependencies are supported in rules written in C++ but not in ad hoc
-  recipes and rules written in Buildscript. The plan is to extend the
-  Buildscript `depdb` builtin to support dynamic dependencies, including
-  auto-generated.
-
-- **C++20 modules [WIP] [HELP]**
-
-  This is an ongoing effort that is currently blocked by support for modules
-  in the compilers.
-
-  Specifically, for GCC we have [complete C++20 modules
-  support](https://build2.org/blog/build2-cxx20-modules-gcc.xhtml) sans the
-  ability to handle auto-generated headers. However, the modules support in
-  the compiler itself is not yet in a usable state. We also plan to try to
-  generalize the module mapper with support for auto-generated headers along
-  the [P1842](https://wg21.link/P1842R0) lines.
-
-  For Clang we are waiting for the module mapper which is work in progress.
-
-  Finally, for MSVC we need to understand if it's possible to provide
-  sensible and conforming support without the module mapper (which the MSVC
-  developers have decided not to provide). Specifically, we are currently
-  blocked by issue [10029154](https://developercommunity.visualstudio.com/t/scanDependencies-does-not-take-into-acc/10029154).
-
-  If you would like to help move things forward on any of these three fronts,
-  get in touch.
-
 - **Distributed compilation and caching for C/C++ [WIP]**
 
   We already have a lot of the infrastructure work in place. Specifically, all
@@ -64,12 +28,6 @@ to contribute to the `build2` project.
   MSVC) and we have an accurate idea of all the inputs to each translation
   unit (headers, modules, compiler options, TU tokens themselves, etc) as well
   as which of them have changed.
-
-- **Automatic distribution package generation**
-
-  We would like to be able to automatically produce binary distribution
-  packages (`.deb`, `.rpm`, `.msi`, etc) from `build2` packages and maybe even
-  publish them to [`cppget.org`](https://cppget.org).
 
 - **Documentation [WIP]**
 
@@ -84,14 +42,6 @@ to contribute to the `build2` project.
 
   We need first-class assembler support in the `bin`/`cc` modules. See
   [issue #162](https://github.com/build2/build2/issues/162) for background.
-
-- **Autoconf emulation module [HELP]**
-
-  We have started work on
-  [`libbuild2-autoconf`](https://github.com/build2/libbuild2-autoconf/), a
-  build system module that provides a rule for processing GNU Autoconf
-  `config.h.in` files as well as their CMake and Meson flavors. We need help
-  populating it with built-in checks.
 
 - **Lockfile**
 
